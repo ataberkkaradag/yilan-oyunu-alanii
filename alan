@@ -1,0 +1,46 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+const int genislik = 80;
+const int yukseklik = 20;
+//kursörü verilen koordınata taşıyor oraya yazdırıyor
+void gotoxy(int x, int y) {
+
+	COORD coord;
+	coord.X = x;
+	coord.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+int main() {
+	//sağa doğru a ları çiziyor
+	for (int i=0; i <genislik; i++)
+	{
+		cout << "a";
+		Sleep(70);
+}
+	//aşağı doğru a ları çiziyor
+	for (int i = 0; i < yukseklik; i++) {
+		gotoxy(genislik - 1, i);
+		cout << "a" ;
+		Sleep(70);
+	}
+	// sola doğru a ları çiziyor
+	for (int i = 0; i < genislik; i++)
+	{
+		gotoxy(genislik-i-1, yukseklik);
+		cout << "a";
+		Sleep(70);
+	}
+
+	//yukarı doğru a ları çiziyor
+	for (int i = 0; i < yukseklik; i++) {
+		gotoxy(0 ,yukseklik-i);
+		cout << "a";
+		Sleep(70);
+	}
+cin.get();
+
+
+}
